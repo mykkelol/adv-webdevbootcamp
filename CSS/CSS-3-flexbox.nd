@@ -1,0 +1,25 @@
+    - it's a more efficient way to layout, align and distribute space among items in containers
+        - think grid, but systematically internal within CSS now
+        - you can do all of this without knowing the size
+        
+    - flex containers
+        - the container that contains display: flex
+    - flex items
+        - anything inside the container like the divs
+    - main axis vs cross axis
+        - main axis is not always left and right,
+        it's the main direction in which the items float
+        - when the container cant fill the item, it flows top to bottom
+        and when it does that--you have a cross axis
+        
+    - flex-direction (row, row-reverse, column, column-reverse)
+        - want main-axis to go left to right or top to bottom
+        - row is default value which is left to right
+        - row-reverse is right to left
+        - column is top to bottom and reverse would be column-reverse
+
+    - flex-wrap (nowrap, wrap, wrap-reverse)
+        - force items to be in one line or multiple lines
+        to have items be their own size
+        -wrap-reverse can be used when row-reverse fails
+        - wrap reverse will reverse from the absolute bottom of the wrap
