@@ -48,6 +48,7 @@
         
     - flex
         - how a flex item grow or shrink based on available space in the flex container
+        - flex: 1 1 60%; indicates grow 1 shrink 1 and 60% basis
         - flex-basis (the ideal height/width depending on column/row)
         - flex-grow (how unused space should be spread among flexed items)
             - largely dependent on ratio so the value is almost arbitary. you can start at flex-grow: 1 if you'd like
