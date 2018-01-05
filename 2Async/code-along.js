@@ -1,29 +1,25 @@
-// forEach
-    // format
-        function forEach(array, callback){}
-        function callback(curElement, currentIndex, array){}
-    // non-forEach alternative
-        var arr = [1,2,3,4,5,6];
-        function double(arr){
-            for(var i = 0; i < arr.length; i++){
-                console.log(arr[i] * 2)
-            }
-        }
-        double(arr);
-    // forEach alternative
-        var arr2 = [1,2,3,4,5,6];
-        forEach(arr, function(n){
-            console.log(n * 2)
+    // counter
+    var counter = 0;
+    function intCounter() {
+        counter++;
+        console.log("Counter: ", counter);
+    }
+    
+    // create promise using runLater
+    // runLater to chain promise and then plug into setTimeout
+    function runLater(callback, timeInMs){
+        var p = new Promise(function(resolve, reject){
+            setTimeout(function(){
+                resolve(callback());
+            }, timeInMs); 
         });
-        
-
-// print an array with following words into a sentence: my, forEach, example!!!
-    var strings = ['my', 'forEach', 'example'];
-    var results = '';
-    forEach(strings, function(str, index, array){
-        if (array.length - 1 !== index){
-            results += str + " ";
-        } else {
-            results += str + "!!!";
-        }
+        return p;
+    }
+    
+    // runLater chaining promise
+    runLater(intCounter, 1000).then(function(){
+        return runLater(intCounter, 2000).then(function(){
+            return runLater(intCounter, 3000).then(function(){
+            });
+        });
     });

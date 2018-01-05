@@ -1,11 +1,11 @@
-Synchronus vs asynchronus
+/*Synchronus vs asynchronus
     - sync means everything is in synchornization, your code executes in order. Line 1 to 2 to 3 and so on.
     - async is the opposite of that where multiple things are happening at once without it being dependent on code prior to it.
-    - an analogy for this would be making your own pizza (sync) vs ordering a pizza (async)
+    - an analogy for this would be making your own pizza (sync) vs ordering a pizza (async)*/
 
-Callback function
-    - a function that's passed into another function as a parameter then invoked by that other function.
-    - e.g.
+// Callback function
+    // - a function that's passed into another function as a parameter then invoked by that other function.
+    // - e.g.
         function callback(){
             console.log("coming from callback");
         }
@@ -17,11 +17,9 @@ Callback function
         }
         
         higherOrder(callback);
-    - console log would print 1, 2 (the call back console.log), and then 3.
-    - callbacks are used in advanced array methods, browser events (clicks, submit, dom contents), AJAX requests, react dev
+    // - console log would print 1, 2 (the call back console.log), and then 3.
+    // - callbacks are used in advanced array methods, browser events (clicks, submit, dom contents), AJAX requests, react dev
     
-HigherOrder function
-    - a function that accepts a callback as a parameter
-    
-forEach function
+// HigherOrder function
+    // - a function that accepts a callback as a parameter
     
