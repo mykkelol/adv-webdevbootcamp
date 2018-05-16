@@ -1,0 +1,66 @@
+' flexbox is a more efficient way to lay out, align, and distribute space amont items in a container
+    - starts with display: flex;
+    
+    - it has:
+        + flex-items: items that are within the flex display (e.g. divs)
+        + main-axis: direct where our flex display is assigned to
+            ' flex-direction: row (default, left>right), row-reverse (right>left), column (top>bottom), column-reverse(bottom>top)
+                - specifies how flex-items are placed in a flex display and defines the main/cross axis
+        + cross-axis: opposite of main-axis
+            ' cross-axis can be manipulated using flex-wrap: wrap-reverse
+        
+    - flex-wrap
+        + specifies whether flex-items are forced into one line or multiple lines
+        + inputs: wrap (forces to multiple line) or nowrap (default), wrap-reverse (change direction of cross axis)
+    
+------------- main axis content ---------------
+
+' justify-content
+    - specifies how space is distributed between items in a flex display along the main axis
+    - inputs: flex-end (move all flex items to right), center (center all items), 
+              space-between (spaces between elements), space-around (evenly distribute spaces around elements)
+
+------------- cross axis content ---------------
+
+' align-items
+    - opposite of justify-content in that it specifies how space is distributed along the cross axis
+    - inputs: flex-start (place elements at start of cross-axis), flex-end (place elements at end of cross-axis), 
+              stretch (to fit the flex display; default), center (align elements at center of cross-axis),
+              baseline (align elements based on the baseline of our text; center of fonts)
+    
+' align-content
+    - specifies how space is distributed between ROWS in flex container along the cross axis
+    - only works if container contains rows of elements (e.g. wrapped elements)
+    - inputs: flex-start (align at start of axis with remaining spaces at end of axis)
+            , flex-end (opposite of flex-start), space-between (align rows at start and end of axis with space in-between)
+            , space-around (align rows at start and end but has space all around including start and end of axis, 
+            , center (align rows as a group in the center with spaces at start and end of axis)
+
+------------- self flex content ---------------
+
+' align-self
+    - works exactly like align-items, but only distribute/align spaces for a single or an individual element instead of a group
+    - same inputs as align-items
+    
+' order
+    - specifies how we order the element within a flex display
+    - inputs: any number; default is 0
+    - works similarly to z-index
+    
+' flex: how a flex item grow or shrink to fit the flex display
+    - flex-bais: similar to width/height depending on flex direction.
+                 Flex-basis sets the size of a flex item before it's placed in the flex display
+        + inputs are any pixels or %
+                 
+    - flex-grow: specifies how elements are distributed in unused space. 
+        + Inputs are any numbers. Flex-grow of 0 would be the original width previously defined that will not be alter
+            ' high number = longer width. Default is 1
+        + if flex-grow: 1; then all element within the container will evenly be given the same width
+        
+    - flex-shrink: specifies how elements are distributed when there are not enough space
+        + Inputs are any numbers. Flex-shrink of 0 would be the orginal width previously defined that will not be shrunk
+            ' high number = first to shrink. Default is 1
+            
+    - shorthand syntax:
+        + flex: 0 0 200px
+        + flex: grow shrink basis

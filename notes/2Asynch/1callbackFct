@@ -1,0 +1,27 @@
+' callback function
+    - a function that is passed into another function as a parameter then invoked by the other function
+    
+    - review following code:
+    
+        function callback() {
+            console.log("Coming from callback");
+        }
+        
+        function highOrder(fn) {
+            console.log("About to call callback fct");
+            fn(); // b/c callback() is being called here indicate that callback() is a callback function.
+            console.log("Callback has been invoked");
+        }
+        
+        highOrder(callback);
+        
+    - used for: advanced array method, browser events (click, submits, DOM content loaded), AJAX requests, React Development
+    - callbacks are typically used with annoymous functions like so:
+        
+        highOrder(function(inputs) {
+            return inputs + blah;
+        });
+    
+    
+' high order function
+    - a high order function is then... a function that accepts a callback function as a parameter 
