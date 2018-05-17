@@ -1,0 +1,23 @@
+' stack
+    - An ordered set of stack frames most recently invoked function is on the top of the stack.
+    The bottom of the stack is the first function invoked. The stack is processed from top to bottom
+    
+    - Review following code:
+    
+    1  function multiply(x, y) {
+    2    return x * y;
+    3  }
+    4
+    5  var res = multiply(3,5);
+    
+    - Line 5 and 2 are invocations.
+        + Line 2 is the most recent invoked function and so it's pushed to the top.
+        + Line 5 is the first function invoked and so it's pushed to the bottom beanth Line 2.
+        + After 3 * 5 is executed/popped off in Line 2, Line 5 gets a result to variable res and pops off.
+ 
+        
+' heap
+    - An area in memory where the your data is stored
+    - When you assign var name = "Micheal"; memory is stored in the heap
+    - When you assign var refCopy = name; memory/heap is not being created.
+

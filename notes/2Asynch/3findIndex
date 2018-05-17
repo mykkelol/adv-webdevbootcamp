@@ -1,0 +1,29 @@
+' findIndex
+    - returns the index of the first element that is a truthy. If there is no truthy in an array, it will return -1.
+    - defining findIndex:
+    
+        function findIndex(arr, callback) {
+            for (var i = 0; i < arr.length; i++){
+                if (callback(arr[i],i,arr)) {
+                    return i;
+                }
+            }
+        return -1;
+        }
+    
+    - review following code:
+        var arr = [3, 4, 6, 2, 1];
+        findIndex(arr, function(num, index, arr){
+            return num === 6;
+        });
+        + RESULT: 2;
+        + if return num === 7; RESULT: -1 because no truthy
+        
+    - review bad callbacks that doesn't have a return:
+        var langs = ["Java", "C++", "JavaScript"];
+        findIndex(langs, function(lang, index, arr) {
+          lang === "JavaScript";
+        });
+        + REULST: -1;
+        + returns -1 because it's not returning anything from the array. If nothing is returned, then value is undefined.
+        As such, you're comparing undefined to "JavaScript"

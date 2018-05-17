@@ -1,0 +1,33 @@
+' Queue
+    - ordered list of functions waiting to be placed on stack. Functions are processed on a FIFO-basis
+    
+' Event Loop
+    - functionality in JS runtime that checks when the stack is empty. When stack is empty, front of the queue is placed on stack
+    
+    - see code:
+            1 function square(n) {
+            2   return n * n;
+            3 }
+            4 setTimeout(function() {
+            5   console.log("Callback is placed",
+                            "on the queue");
+            6 }, 0);
+            7 console.log(square(2));
+        
+        + sequence of stack: 4, 7, 1, 5
+        
+' Single threaded
+    - code execution that's linear and cannot be interrupted by something else in the program.
+        + this is illustrated in the code above where we know line 5 should execute within 0 second, but instead square(2) gets popped off the stack first.
+
+    - see code 2:
+        setTimeout(function() {
+            console.log("Hello from the timeout");
+        }, 0);
+        
+        for (var i = 0; i < 1000000000; i++) {
+            var x = i * 2;
+        }
+        console.log("Done with loop");
+    
+    - in code above, the console.log of "hello" won't get execute until after the loop because it's in the queue

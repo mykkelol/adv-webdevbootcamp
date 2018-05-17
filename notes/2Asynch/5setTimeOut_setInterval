@@ -1,0 +1,43 @@
+' setTimeOut 
+    - function that asynchronously invokes callback after a delay in milliseconds
+    - setTimeOut(callback, delay);
+    
+    - see code:
+            var timerId = setTimeout(function() {
+                console.log("This function runs in 30 seconds");
+            }, 30000);
+            
+            setTimeout(function() {
+                console.log("Canceling the first setTimeout", timerId);
+                clearTimeout(timerId);
+            }, 2000);
+
+' setInterval
+    - function that continually invokes a callback after every X milliseoncds
+    - var repeat = 3000ms;
+    - setInterval(callback, repeat);
+    
+    - see code:
+            var num = 0;
+            var intervalId = setInterval(function() {
+                num++;
+                console.log("num:", num);
+                if (num === 3) {
+                    clearInterval(intervalId);
+                }
+            }, 1000);
+    
+    - see code 2:
+            function countDown(num){
+                var intervalId = setInterval(function() {
+                    num--;
+                    if (num !== 0) {
+                        console.log("Timer:", num);
+                    } else {
+                    clearInterval(intervalId);
+                        console.log("Ring ring ring!!!");
+                    }
+                }, 1000);
+            }
+            
+            countDown(3);
