@@ -1,1 +1,28 @@
 ' an alternative to XHR that is more suitable for modern single-page app
+
+' see code below:
+        
+        fetch(url)
+        .then(function(response){
+            return response.json
+        });
+
+    - in the code above, the default open request is GET. But you also have
+    fetch option as illustrated in following code:
+    
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+                name: 'blue',
+                login: 'bluecat',
+            })
+        })
+        .then(function(response){
+            console.log(response);
+            return response.json()
+        })
+        .then(function(data){
+            console.log(data.bpi.EUR.rate);
+        });
+
+    - stringify is a method to convert all inputs into strings

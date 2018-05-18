@@ -5,5 +5,5 @@ fetch(url)
     console.log(response);
     return response.json();
 }).then(function(data){
-        console.log(data.bpi.eur.rate);
+        console.log(data.bpi.EUR.rate);
     });
