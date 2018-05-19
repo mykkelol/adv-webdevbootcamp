@@ -1,0 +1,17 @@
+' you can use multiple expects in a single "it" block, but it's not an effective practice
+' instead, use multiple expects in a single "it" block when you are testing the same method
+
+' see code below:
+    
+    describe("Planet Earth!", function(){
+        
+        it("is round", function(){
+            expect(earth.isRound()).toBe(true);
+        });
+    
+        it("has a method to check how far Earth is from the sun", function(){
+            expect(earth.howFarFromSun).jasmine.any(Function);
+            expect(earth.howFarFromSun()).toBe(3);
+        });
+    
+    });

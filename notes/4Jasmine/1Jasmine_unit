@@ -1,0 +1,52 @@
+' unit test is when we test a unit (or an application) individually to ensure each part of a unit will run properly
+    - to perform unit testing we can use Jasmine, a unit testing framework
+    
+' Jasmine keywords
+
+    - describe: 
+        + used to organized testing
+        + let me describe __ to you
+        
+    - it: 
+        + used inside of describe function, allowing us to write code to explain in
+          details what we think the functionality of a code should be doing
+        + let me tell you about __
+        + each it function corresponds to a test (or spec)
+        
+    - expect: 
+        + used inside of it function, allowing us to make expections/assertions of the functionality we're testing.
+          If one of our expections inside the function are not met with the test (or spec) fails
+          
+    - matchers:
+        + functions that are attached to results of the expect function
+        + options: 
+            ' .toBe (used to compare values; ===)
+            ' not.toBe (used to compare values; !===)
+            ' toBeCloseTo (used to compare values in similarity but not exactly the same)
+                - has a second input: e.g. expect(3.1415).toBeCloseTo(3.14,2)
+            ' toBeDefined (used to test if variables if specific value and not undefined)
+            ' toBeFalsey/toBeTruthy (used when we expect value to be boolean; true/false)
+            ' toBeGreaterThan/toBeLessThan (used when we test numbers)
+            ' toContain (if values are contained in array)
+            ' toEqual (test if values are the same even if they are differences in reference memory; ==)
+                - very similar to === (toBe), but === will spit out falsey if two variables are different in memory
+            ' jasmine.any() (used to test if values are an array, functions, or constructs)
+            
+' in the following code, notice the following:
+    - the 'it' function is in 'describe' and the 'expect' function is in 'it'
+    - the matcher '.toBe' is attached to expect of results
+    
+        var earth = {
+          isRound: true,
+          numberFromSun: 3
+        }
+        describe("Earth", function(){
+          it("is round", function(){
+            expect(earth.isRound).toBe(true)
+          });
+          it("is the third planet from the sun", function(){
+            expect(earth.numberFromSun).toBe(3)
+          });
+        });
+        
+    - the code above will pass the Jasmine unit test. If you change toBe to false or 4, for example, the unit test will fail

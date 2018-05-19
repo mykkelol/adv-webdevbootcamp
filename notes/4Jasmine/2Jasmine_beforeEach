@@ -1,0 +1,23 @@
+- beforeEach is used to avoid repeating a declaration of a variable because it picks up a callback 
+  before the 'it' function picks up its callback
+- beforeAll/afterAll runs before ALL test, but it doesn't reset in between. So in example below,
+  After pushing 7 in the first it, the array in second it will be 1,2,3,4,7,7. This is not used commonly
+    
+    - see code below:
+        
+        describe("Arrays", function(){
+            var arr;
+            beforeEach(function(){
+                arr = [1,2,3];
+            });
+        
+            it("add elements to an array", function(){
+                arr.push(7);
+                expect(arr).toEqual([1,2,3,7]);
+            });
+        
+            it("returns new length of array", function(){
+                expect(arr.push(7)).toBe(4);
+            });
+            
+        });

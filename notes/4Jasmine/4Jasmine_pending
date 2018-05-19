@@ -1,0 +1,19 @@
+' pending is used when we don't know what to expect of a result or when we don't want to run the test just yet
+' pending can be used in three different syntax
+
+' see code below:
+    
+    describe("penidng specs", function(){
+    
+        xit("can start with x for pending specs", function(){
+            expect(true).toBe(true);
+        });
+        
+        it("it can be a pending specs if there are no callback function");
+        
+        
+        it("it can be a pending specs if pending() is clarified", function(){
+            expect(2).toBe(2);
+            pending();
+        });
+    });

@@ -1,0 +1,14 @@
+' TDD: Test Driven Developement
+    - writing your test before writing your code
+    - you literally create your product by creating the testing first
+        + code the test, see test fail, write code to pass test, refactor as necessary, and repeat
+        
+' BDD: Behavior Driven Developement
+    - Jasmine is a JS BDD framework
+    - it is a subset of TDD
+    - involves verbose of our styles and functionality of our codes (e.g. describe(), it(), and expect())
+    
+' Other testing
+    - Integration Testing: built off unit testing, but it's essentially a test of the multiple units and how each unit test integrate with each other
+    - Acceptance Testing: a test of the full system and its business system in general. To see if the code is acceptable for the business function
+    - Stress Testing: how effective our code can be under unfavorable conditions such as high traffic, crash, or non-common issues that could occur

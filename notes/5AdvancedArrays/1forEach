@@ -1,0 +1,20 @@
+' forEach 
+    - iterates through an array
+    - for each iteration, it runs a callback function for each value of the array
+    - it always returns 'undefined'
+    
+' see code below
+
+    var arr = [1,2,3]
+    arr.forEach(function(val, index, array){
+        console.log(val, index, array);
+    });
+    
+        + RESULT: 1 0 [1,2,3]
+                  2 1 [1,2,3]
+                  3 2 [1,2,3]
+                  undefined
+                  
+        + As aforementioned, forEach always returns 'undefined'
+        + This is because a function that doesn't have a return keyword will always output 'undefined'
+            

@@ -1,0 +1,36 @@
+' Spies stubs (or mimics) any function and track calls to it and are removed after each specs (or tests)
+        + essentially, spies allow us to mock a behavior of a function
+        + this can help speed up testing time and reduce costly server usuage (e.g. fking AWS)
+        
+    - spies can be created two ways:
+        + spyon (used for spying on an existing function)
+        + jasmine.createby (used when testing non-existing function)
+    
+    - spy matchers:
+        1) .toHaveBeenCalled() - allow us to see if a spy has been called; useful to know if spy actually works before perfoming testing
+        2) .toHaveBeenCalledWith() - allow us to see if test spy's parameters
+    
+        3) matchers to perform testing:
+            1) .toEqual - the result of the function
+            2) .calls.count() - count how many time a function is called
+            3) .calls.any() - what parameters or arguments the functions is called with
+        
+    - see code below:
+    
+        function add(a,b,c){
+            return a+b+c;
+        }
+    
+        describe("add", function(){
+            var addSpy, result;
+            beforeEach(function(){
+                addSpy = spyon(window, "add").and.callThrough();
+                result = addSpy(1,2,3);
+            });
+            
+            it("show paraments used, frequency of calls, and results of function add without calling add itself", function(){
+                expect(addSpy.calls.any()).toBe(true);
+                expect(addSpy.calls.count()).toBe(1);
+                expect(result).toEqual(6);
+            });
+        });

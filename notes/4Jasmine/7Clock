@@ -1,0 +1,50 @@
+' Clock is used for testing time and date dependent code
+    - it is installed by invoking in beforeEach: jasmine.clock().install();
+    - after each spec, clock must be uninstall in afterEach: jasmine.clock().uninstall();
+    - to test asynchronous code, all we have to do is pass a parameter to its corresponding it block
+      that will be called when it's done. See code 2.
+    
+    - see code 1 below:
+    
+            describe("a simple setTimeout", function(){
+                var sample;
+                
+                beforeEach(function(){
+                    sample = jasmine.createSpy("sampleFunction");
+                    jasmine.clock().install();
+                });
+                
+                afterEach(function(){
+                    jasmine.clock().uninstall();
+                });
+            
+                // we're testing a function that does nothing, but we want to see if something happens to our spy after 1 second
+                it("is only invoked after 1s or 1000 ms", function(){
+                    
+                    setTimeout(function(){
+                        sample();
+                    }, 1000ms);
+                    
+                    jasmine.clock.tick(999);
+                    expect(sample).not.toHaveBeenCalled(); // this indicates that spy hasn't been called because the timer is not out yet
+                    jasmine.clock.tick(1);
+                    expect(sample).toHaveBeenCalled(); // called after timer out
+                
+                });
+            });
+            
+    - see code 2 below:
+        
+        function getUserInfo(username){
+            return $.getJSON('http://api.github.com/users/' + username);
+        }
+        
+        describe("getUserInfo", function(){
+            it("return correct name for the user", function(done){ // notice done is passed through. this is to test Async code
+                getUserInfo("mykkelol").then(function(data){
+                    expect(data.name).toBe("Micheal Sihavong");
+                    done();
+                });
+            });
+        });
+    

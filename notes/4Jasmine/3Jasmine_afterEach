@@ -1,0 +1,25 @@
+- afterEach is written under beforeEach and runs after every "it" function. It is conceptually, a "teardown" of results because
+  afterEach resets the data between test.
+  
+- see why it's useful below:
+
+    describe("counting", fucntion(){
+        var count = 0;
+        
+        beforeEach(function(){
+            count++;
+        });
+        
+        afterEach(function(){
+            count = 0;
+        });
+    
+        it("test if counter increases from var count = 0",function(){
+            expect(count).toBe(1);
+        });
+        
+        it("check if afterEach resets count to 0 and counts up again",function(){
+            expect(count).toBe(1);
+        });
+    
+    });
