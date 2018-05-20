@@ -1,0 +1,38 @@
+' Some
+    - iterates through array
+    - runs callback for each value in array
+    - if callback returns true for AT LEAST one value, result is true
+    - otherwise, false
+    - always returns boolean and first advanced array method that doesn't return undefined
+   
+' writing some fct:
+
+            function mySome(arr, callback){
+                for (var i = 0; i < arr.length; i++){
+                    if(callback(arr[i],i,arr)){
+                        return true;
+                    }
+                }
+                return false;
+            }
+            
+            var arr = [1,2,3];
+            mySome(arr,function(value, index, array){
+                return value < 2;
+            });
+    
+' Every
+    - opposite of some; if callback returns false for any single value, result will be false
+
+' writing every fct:
+
+            function myEvery(arr, callback){
+                for (var i = 0; i < arr.length; i++){
+                    if(!callback(arr[i],i,arr)){
+                        return false;
+                    }
+                }
+                return true;
+            }
+    
+    

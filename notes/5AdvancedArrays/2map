@@ -1,0 +1,35 @@
+' Map
+    - creates a new array
+    - iterates through array
+    - runs callback for each value in array
+    - adds results of aforementioned callback to new array
+    - returns new array
+        + this means that if you don't have a return keyword, it will return array with 'undefined'
+        
+' map ALWAYs returns a new array of the same length
+' advantage over forEach
+    - to create new array in forEach, we have to create a new array and value into it.
+      As such, map more powerful because you don't have to manually create a new table since the new array is always the same length.
+        + if you think about it, map is just forEach with new array declared and values from callback pushed into the said new array.
+
+' see code below (implementing map function):
+
+        function maps(array, callback){
+            var arr = [];
+            for (var i = 0; i < array.length; i++){
+                arr.push(callback(array[i],i,array));
+            }
+            return arr;
+        }
+    
+        var arr = [1,2,3];
+        maps(arr,function(value,index,array){
+            return value*2;
+        });
+        
+' see actual usage of map method:
+        
+        var arr = [1,2,3];
+        arr.map(function(value, index, array){
+            return value * 2;
+        });

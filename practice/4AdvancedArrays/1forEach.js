@@ -86,19 +86,15 @@ function vowelCount(str){
     var newObj = {};
     var vowels = "aeiou";
     arr.forEach(function(val){
-        // indexOf search a string for occurence and returns its index. If it never occurs, it will return -1
+        // indexOf search a string for occurence and returns its index within the string it search. If it never occurs, it will return -1
         if(vowels.indexOf(val) !== -1){
-            if(newObj[val]){
-                console.log(newObj[val])
+            if(newObj[val]){ // if key or "val" is already in newObj, add to counter
                 newObj[val]++;
-            } else {
+            } else { // if key is not already in newObj, just set it = 1. So with "Elie", the first "E" is =1 and on the last "e", it will say e is already in there so add another
                 newObj[val] = 1; // if only 1 vowel, set = 1
             }
         }
     });
     return newObj
 }
-vowelCount("Tim")
 
-var str = "Micheal"
-console.log(str.indexOf("e"));

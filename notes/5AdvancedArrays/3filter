@@ -1,0 +1,25 @@
+' Filter
+    - creates a new array
+    - iterates through array
+    - runs callback for each value in array
+    - for callbacks that returns true, add value to new array
+    - for callbacks that returns false, ignore value and go to next iteration
+    
+' Filter callbacks' results will always be boolean
+
+' creating filter function
+
+    function filters(arr, callback){
+        var newArr = [];
+        for (var i = 0; i < arr.length; i++){
+            if (callback(arr[i],i,arr)){
+                newArr.push(arr[i]);
+            }
+        }
+        return newArr;
+    }
+    
+    var array = ['Elie','Tom','Tim','Pete']; 
+    filters(array,function(value,index,arr){
+        return value.length > 3;
+    });
