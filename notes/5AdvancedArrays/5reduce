@@ -1,0 +1,37 @@
+' Reduce
+    - synxtax: 
+    
+            var arr;
+            arr.reduce(function(accumulator,nextValue,index,array){
+    
+            }, optional second parameter);
+            
+    - syntax (utilized):
+    
+            var arr = [1,2,3];
+            arr.reduce(function(accumulator,nextValue,index,array){
+                return accumulator + nextValue
+            }, 10);
+            
+    - looking in above syntax, reduce callback's first parameter could be the the first value in the array
+      or the optional second parameter
+        + for example, in utlized syntax above, since the optinal second parameter is specified, the first parameter for the callback is 10
+        + in contrast, if the optional parameter was not specified, the first parameter would for callback is 1 (the first value in array).
+    
+    - result of each iteration becomes the accumulator for the next iteration.
+        + for example, in the utilized syntax, the accumulator for the first iteration is 10. For the second iteration, the accumulator would be
+          11 (or result of first iteration).
+    
+
+' use reduce method to create an object that contains value of an array as key and count as its value
+    
+    var arr = [5,4,1,4,5];
+    arr.reduce(function(accumulator, nextValue){
+        if(nextValue in accumulator){
+            accumulator[nextValue]++;
+        } else {
+            accumulator[nextValue] = 1;
+        }
+        return accumulator;
+    },{});
+    

@@ -1,0 +1,62 @@
+' Closure
+    - exists when an inner function utilizes a variable 
+    from the outer function even though the outer function has already return
+    
+    - see code:
+        
+            function outer(a){
+                return inner(b){
+                    return a + b;
+                }
+            }
+            
+        + In the second return, this is how Closure is working. It is utilizing 'a' even though outer function has already return something
+
+' Closure as Private Variable
+    - closure is useful for private variable which does not exist in JS
+    - private variables are variables that can be called, but cannot be modified externally
+    
+    - see code:
+    
+            function count(){
+                var count = 0;
+                return function(){
+                    count++;
+                    return count;
+                }
+            }
+            
+            var counter1 = count();
+            var counter2 = count();
+            counter1(); // returns 1
+            counter1(); // returns 2
+            counter2(); // returns 1, notice how the counter returns 1 again since the original variable was not modified
+            counter2(); // returns 2
+
+
+    - see code and comment in regards to full privacy
+    
+        function classRoom(){
+            var instructors = ['Elie', 'Colt'];
+            return {
+                getInstructors: function(){
+                    return instructors;
+                },
+                addInstructors: function(instructor){
+                    instructors.push(instructor);
+                    return instructors;
+                }
+            }
+        }
+        
+            + code above is not full privacy because you can do the following:
+            
+                var first = classRoom();
+                first.addInstructors('Matt');
+                first.getInstructors.pop();     // Matt will be removed
+            
+            + to prevent this, we use .slice to perform a shallow copy of the original instructors
+              array and return the copy instead. See code:
+              
+                return instructors.slice();
+            
