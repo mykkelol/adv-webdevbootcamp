@@ -1,0 +1,125 @@
+' this
+    - a reserverd keyword in JS
+    - usually determined by how a function is called 
+    - can be determined using four rules:
+        + global: when this keyword is outside of a declared object so it is a part of the window (or global object)
+            ' e.g. if we declared var micheal = "sihavong" in console and perform window.micheal === micheal // will be true
+            ' e.g. console.log(this) // returns 'window'
+            ' see problem with global rule in ' strict
+        + implicit binding/object: when 'this' keyword is inside of a declared object and 'this' refers to its paired object so as long as "this" is invoked.
+            ' In essence, 'this' will still return the global object 'window' if a function has not been invoked inside the implicit object.
+            ' see code 1
+        + explicit binding: when we choose the context of 'this' using call, apply, or bind
+            ' call(thisArg, a,b,c..) has infinite parameters and invokes immediately
+                - see code 1.1
+                - see code 1.2
+                - see code 1.4
+            ' apply(thisArg, [a,b,c..]) has two parameters and invokes immediately
+                - see code 1.3
+                - see code 1.4
+            ' bind(thisArg, a,b,c..) similar to call but does not invoke immediately
+                - see code 1.4
+' strict
+    - when we call this from a function, it can be access from the outside the function like so:
+    
+            console.log(this) // returns window
+            
+            function whatThis(){
+                return this;
+            }
+        
+            whatThis() // returns window, but it shouldn't since it's wrapped in the function it should not be accessed from outside the function
+                       // to avoid 'this' keyboard from being accessed outside the function, we can use strict like so:
+                   
+            "use strict"
+            console.log(this) // returns window
+            
+            function whatThis(){
+                return this;
+            }
+        
+            whatThis() // returns undefined
+            
+' code 1:
+
+            var person = {
+                firstname: 'Micheal',
+                phrase: function(){
+                    return "Hi " + this.firstname;  
+                },
+                determineContext: function(){
+                    return this === person;        
+                },
+                dog: {
+                    sayHello: function(){
+                        return "Hello " + this.firstname;
+                    },
+                    determineContext: function(){       // returns Hello undefined because 'this' refers to its closest pairing object
+                        return this === person;         // returns false. Its closest pairing object is actually dog. If we want to change that, we can use the explicit rule
+                    }
+                }
+            }
+        
+    - code 1.1: to make sayHello functional we can use call like so: person.dog.sayHello.call(person);
+    
+    - if in the determineContext key, we paired it with 'this' without invoking a function like above then when we call it outside
+    the object, it will refer to the global window like so:
+            
+            var person = {
+                determineContext: this;
+            }
+            person.determineContext; // returns window
+            
+            
+    - code 1.2: Return divs with text "Hello"
+        + we can use .filter method if it was an array. With call we can turn array-like-objects into array like so:
+        
+            var divs = document.querySelector("div");
+            var divsToArray = [].slice.call(divs);
+            divsToArray.filter(function(val){
+                return val.innerText === "Hello";
+            }
+    
+    
+    - code 1.3:
+        + apply can be useful when methods cannot read arrays because apply can spread out values in an array
+            
+            function sumValues(a,b,c){
+                return a+b+c;
+            }
+            var values = [1,2,3]
+            sumValues(values);              // returns 1,2,3undefinedundefined
+            sumValues.apply(this,values);   // returns 6
+            
+        + another example is max which does not accept an array:
+        
+            Math.max.apply(this,values);
+            
+            
+    - code 1.4:
+        
+        function addNumbers(a,b,c,d){
+            return this.firstname + " just calculated " + (a+b+c+d);
+        }
+        
+        var elie = {
+            firstname: "Elie"
+        }
+        
+        addNumbers.call(elie,1,2,3,4);
+        addNumbers.apply(elie,[1,2,3,4]);
+        var calc = addNumbers.bind(elie,1,2);
+        calc(3,4); 
+            // bind doesn't need all the parameters immediately. This is useful for when we don't know all the arguments/parameters at hand.
+            // bind is also useful for aynschronous code (code that don't run line by line) and doesn't need to run until later
+            
+    - code 1.4.1:
+    
+        function colt = {
+            firstName: "Colt",
+            sayHi: function(){
+                setTimeOut(function(){
+                    console.log("Hi " + this.firstName);  // without the bind method, it would return: 'Hello undefined' because 'this' is referring to the window object since there is a 1000ms delay
+                }.bind(this), 1000)    // this is the first argument in bind method because bind does not invoke immediately and when it invokes, the delay is completed and 'this' would refer to the 'colt' object
+            }
+        }
