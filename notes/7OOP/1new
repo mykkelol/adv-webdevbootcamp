@@ -1,0 +1,20 @@
+' New
+    - to utilize OOP in JS, we create constructors with function. These constructors create new objects with the keyword 'new' and dunder proto
+    - does four things for us:
+        1) creates a new empty object (see line 9-10)
+        2) set keyword 'this' with the new empty object (see line 2-4)
+        3) adds 'return this' to its corresponding function (see line 2-4)
+        4) adds property _proto_ (dunder proto) to the new empty object
+            + _proto_ links the prototype property on the constructor function to the new empty object
+        
+    1    function Dog(name, age){                       // constructor function, our blueprint, or class
+    2        this.name = name;                          // 'this' now refers to rusty or fido; this is an instance of class
+    3        this.age = age;                            // this is an instance of class
+    4        this.bark = function(){                    // this is an instance of class
+    5            console.log(name + " just barked!");
+    6        }
+    7    }
+    8    
+    9    var rusty = new Dog("Rusty", 3);               // creating new empty object,
+    10   var fido = new Dog("Fido", 1);                 // creating new empty object
+        

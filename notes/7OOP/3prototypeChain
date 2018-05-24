@@ -1,0 +1,49 @@
+' we can access the properties of the prototype object via prototype chain and _proto_
+    - when we create array with var arr = [], we're actually doing var arr = new Array. Notice keyword 'new'
+    - this indicates that it has a prototype object 
+        + e.g. arr.prototype === arr;
+    - when we utilize array methods like .push, we're accessing array prototype properties
+        + e.g. dir(arr);
+        
+' this is useful because we can create properties like so:
+    
+                1   function Person(name){      
+                2       this.name = name;
+                3   }
+                4
+                5   var elie = new Person('Elie');
+                6   var colt = new Person('Colt');
+                
+            ' Create new property:
+                
+                7   Person.prototype.isInstructor = true;
+                8   elie.isInstructor;  // returns true
+                9   colt.isInstructor;  // returns true
+
+' this is also useful in making code more efficient. See code 1 and code 2 below
+    
+    - code 1:
+            function Person(name){
+                this.name = name;
+                this.sayHi = function(){
+                    return "Hi " + this.name;
+                }
+            }
+            
+            var colt = new Person('Colt');
+            colt.sayHi();
+    
+    - code 1 will work but every time we create a new object like 'var colt', we would have to redefine the 'sayHi' function, making
+      our code extremely inefficient. See alternative:
+    - code 2:
+    
+            function Person(name){
+                this.name = name;
+            }
+            
+            Person.prototype.sayHi = function(){
+                return "Hi" + this.name;
+            }
+            
+            colt.sayHi();
+     

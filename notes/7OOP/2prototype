@@ -1,0 +1,21 @@
+' Every function created has the property .prototype which is an object
+    - see line 1
+' Every prototype object has the .constructor which points the prototype object back to the constructor function
+    - see line 1 comment
+' Every time we create a new object using 'new' keyword, a property "_proto_" gets created, linking the new object
+  with the prototype object which is a prototype of our original constructor function.
+    - see line 5 & 6
+    
+  
+    1   function Person(name){      // this a constructor function which has a property .prototype because all constructor function has one. Can test it with Person.prototype
+    2       this.name = name;
+    3   }
+    4
+    5   var elie = new Person('Elie');      // new objects created from the Person constructor function. Keyword 'new' links the new object with the prototype object
+    6   var colt = new Person('Colt');      // new objects created from the Person constructor function
+    
+' Test the concept below:
+    
+    7   elie._proto_ === Person.prototype;          // returns true, indicating that there is a link b/t new object and the prototype object
+    8   Person.prototype.constructor === Person;    // returns true, indicating that the prototype object is pointing back to the constructor function
+    9   Person.prototype                            // returns the object of constructor function
