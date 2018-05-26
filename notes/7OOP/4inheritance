@@ -1,0 +1,29 @@
+' Inheritance
+    - ACTUAL DEF: passing methods and properties from one class to another
+    - IN JS: passing prototype from one constructor to another
+        + illustrated in line 13 & 14
+        + we want to use Object.create because had we done student.prototype = person.prototype, we're just referencing and 
+          not creating a new object which would also make changes to our original Person constructor. As such, we use Object.create
+          to create a new Object instead of just referencing it
+        + After creating a new object for the new constructor, we have to reassign the object.
+          If we check Student.prototype.constructor before reassignment, it would return the Person constructor. As such, we reassign
+          the new object to its corresponding constructor as shown in line 14.
+    
+    
+    1    function Person(name){
+    2        this.name = name;
+    3    }
+    4    
+    5    function Student(name){
+    6        Person.apply(this, arguments);
+    7    }
+    8    
+    9    Person.prototype.sayHi = function(){
+    10        return "Hi " + name;
+    11   }
+    12    
+    13   Student.prototype = Object.create(Person.prototype);
+    14   Student.prototype.constructor = Student;
+    15
+    16   var micheal = new Student("Micheal");
+    17   micheal.sayHi();
