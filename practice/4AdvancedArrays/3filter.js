@@ -9,7 +9,7 @@ Examples:
 
 function filterByValue(arr, key){
     return arr.filter(function(val){
-        return val[key] === true;
+        return val[key];
     });
 }
 filterByValue([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner') 

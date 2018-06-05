@@ -10,7 +10,7 @@ Examples:
 
 function extractValue(arr, key){
     return arr.reduce(function(accumulator, nextValue){
-        accumulator.push(nextValue.name);  
+        accumulator.push(nextValue[key]);  
         return accumulator;
     },[]);
 }

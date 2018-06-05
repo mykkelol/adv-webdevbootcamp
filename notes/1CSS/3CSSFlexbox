@@ -48,7 +48,7 @@
     - works similarly to z-index
     
 ' flex: how a flex item grow or shrink to fit the flex display
-    - flex-bais: similar to width/height depending on flex direction.
+    - flex-basis: similar to width/height depending on flex direction.
                  Flex-basis sets the size of a flex item before it's placed in the flex display
         + inputs are any pixels or %
                  
