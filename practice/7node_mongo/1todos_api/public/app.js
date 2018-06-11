@@ -42,7 +42,7 @@ function addTodo(todo){
     newTodo.data('id', todo._id); // jQuery has a method .data to store key and value of objects. Here, we stored mongos' generated ._id value
     newTodo.data('completed', todo.completed); // saving the completed key and its associated value
     if(todo.completed){
-        todo.addClass('done'); // class done is greying out the <li>
+        newTodo.addClass('done'); // class done is greying out the <li>
     }
     $('.list').append(newTodo); // add the newTodo to <ul> and showing it
 }

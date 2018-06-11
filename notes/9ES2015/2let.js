@@ -1,6 +1,7 @@
 // let, in global scope, function similarly like var except it cannot be redeclared. It's similar in that you can reassign
 // the let keyword, in block scope, is how it differntiates itself from var. See code below:
     // in essence, when declared in a block scope, a var declaration can be accessed outside the block but a let declaration cannot 
+    // block scope includes if, for, while, do, catch, try
     
         if(1+1==2){
             var mikey = 'hi';
