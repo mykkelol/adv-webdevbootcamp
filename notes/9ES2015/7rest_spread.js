@@ -42,7 +42,7 @@
                 return a + b + c;
             }
             var nums = [1,2,3]
-            
+       
         // B1: .apply
             sumVal.apply(this, nums); // 6
         

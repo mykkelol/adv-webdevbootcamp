@@ -1,7 +1,7 @@
 // Maps is referred to as hash maps in other lang
     // it's similar to objects, excepts keys can be ANY data type including array and object 
         // object keys can only be string
-    // maps methods includes: .set, .delete, .size, .get, .has, .find, .values (search by values instead of keys)
+    // maps methods includes: .set, .delete, .size, .get, .has, .values (search by values instead of keys)
     // maps is a symbol.iterator which allow us to use for Of loop
 // Weakmap is another form of maps
     // it's more performant than maps, but can't be iterated over

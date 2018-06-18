@@ -61,6 +61,6 @@ arrow function is VERY SIMILAR to the keyword function(), but not a complete rep
         
         // "this" in C2's code will work here without having to bind because the arrow function will
         //      continue to have the instructor variable be the keyword "this". This is because the instructor variable is the enclosing context. 
-        // Another note: the keyword function was also used here because if we used the arrow function twice, at sayHi and at setTimeout, then
+        // Another note: the keyword 'function' was also used here because if we used the arrow function twice, at sayHi and at setTimeout, then
         //      the enclosing context for sayHi's arrow fn would be instructor. As such, the enclosing context for setTimeout would be sayHi.
         
