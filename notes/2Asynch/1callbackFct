@@ -1,3 +1,8 @@
+' asynchronous code
+    - code which starts now but finishes at a later point in time
+        + e.g. I raid with my WOW guild the same the time I ordered Dominos.
+          Dominos will then deliver the pizza in 20mins, allowing me to raid and eat right after in exactly 20mins
+
 ' callback function
     - a function that is passed into another function as a parameter then invoked by the other function
     
