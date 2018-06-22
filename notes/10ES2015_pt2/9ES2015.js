@@ -20,7 +20,7 @@
     // 2
 
 /*    
-.includes()
+[].includes() 
     - a boolean alternative of .indexOf() and .findIndex();
     - will return a boolean of a value input
 */

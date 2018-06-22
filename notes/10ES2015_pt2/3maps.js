@@ -11,6 +11,7 @@
     
 var firstMap = new Map;
 
+// .set(key, value);
 firstMap.set(1, 'Elie');
 firstMap.set(false, 'a boolean');
 firstMap.set('nice', 'a string');
